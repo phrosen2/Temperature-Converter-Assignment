@@ -9,7 +9,7 @@ $$\text{Celsius} = \frac{5}{9} \times (\text{Fahrenheit} - 32)$$
 
 1. Line 1 of the program output **MUST** ask the user for the temperature in Fahrenheit. This will be an integer.
 2. Line 2 of the program output **MUST** provide the temperature in Celsius. This can be a decimal number. This value does not need to be rounded.
-3. **Hint:** You will need what is called a `Scanner` to receive input from a user in the console. See Scanner.java for an example.
+3. **Hint:** You will need what is called a `Scanner` to receive input from a user in the console. See ScannerExample.java for an example.
 
 Keep in mind that you may need to declare variables to hold intermediate values or store input and output. Your program can have as many lines as you would like inside the `.java` file.
 
