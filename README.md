@@ -28,7 +28,7 @@ The temperature in celsius is: 21.11111111111111
 
 ## Hints / Common Issues
 
-1. **Integer division:** Another common issue is getting `0°C` or `-0°C` no matter what you type. This happens because you may have used integer division instead of double division.
+1. **Integer division:** A common issue is getting `0°C` or `-0°C` no matter what you type. This happens because you may have used integer division instead of double division.
 
 ---
 
