@@ -6,11 +6,10 @@ The goal of this assignment is to write a program that converts from a user's Fa
 
 $$\text{Celsius} = \frac{5}{9} \times (\text{Fahrenheit} - 32)$$
 
-For this assignment, you must follow directions *exactly*. Create a PA03 project in Eclipse. Put all of the following code into the main method:
 
 1. Line 1 of the program output **MUST** ask the user for the temperature in Fahrenheit. This will be an integer.
 2. Line 2 of the program output **MUST** provide the temperature in Celsius. This can be a decimal number. This value does not need to be rounded.
-3. **Hint:** You will need what is called a `Scanner` to receive input from a user in the console.
+3. **Hint:** You will need what is called a `Scanner` to receive input from a user in the console. See Scanner.java for an example.
 
 Keep in mind that you may need to declare variables to hold intermediate values or store input and output. Your program can have as many lines as you would like inside the `.java` file.
 
