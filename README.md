@@ -39,7 +39,7 @@ The temperature in celsius is: 21.11111111111111
 
 ---
 
-## ⚠️ Important: Multiple Test Cases
+## Important: Multiple Test Cases
 
 From here on out, **assignments will have different outputs for different inputs!** This means you can't just look at your program running one time to tell if it works — it may work on some inputs but not others. **Try your code against all of the grading criteria test cases** below and see if your program gives correct results.
 
