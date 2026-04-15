@@ -21,7 +21,7 @@ jobs:
         test-name: "Compile"
         setup-command: ''
         command: javac TempConverter.java
-        timeout: 10
+        timeout: 1
         max-score: 10
 
     - name: Header - Name
@@ -31,7 +31,7 @@ jobs:
         test-name: "Header: Name filled in"
         setup-command: ''
         command: grep -qE "\*\s*Name:\s*\S+" TempConverter.java
-        timeout: 10
+        timeout: 1
         max-score: 2
 
     - name: Header - Block
@@ -41,7 +41,7 @@ jobs:
         test-name: "Header: Block filled in"
         setup-command: ''
         command: grep -qE "\*\s*Block:\s*\S+" TempConverter.java
-        timeout: 10
+        timeout: 1
         max-score: 2
 
     - name: Header - Date
@@ -51,7 +51,7 @@ jobs:
         test-name: "Header: Date filled in"
         setup-command: ''
         command: grep -qE "\*\s*Date:\s*\S+" TempConverter.java
-        timeout: 10
+        timeout: 1
         max-score: 1
 
     - name: test1 (70°F)
@@ -61,7 +61,7 @@ jobs:
         test-name: "test1: 70°F converts correctly"
         setup-command: ''
         command: echo '70' | java TempConverter | grep -q '21.1'
-        timeout: 10
+        timeout: 1
         max-score: 10
 
     - name: test2 (32°F)
@@ -71,7 +71,7 @@ jobs:
         test-name: "test2: 32°F converts correctly"
         setup-command: ''
         command: echo '32' | java TempConverter | grep -q '0.0'
-        timeout: 10
+        timeout: 1
         max-score: 10
 
     - name: test3 (0°F)
@@ -81,7 +81,7 @@ jobs:
         test-name: "test3: 0°F converts correctly"
         setup-command: ''
         command: echo '0' | java TempConverter | grep -q '17.7'
-        timeout: 10
+        timeout: 1
         max-score: 10
 
     - name: test4 (102°F)
@@ -91,7 +91,7 @@ jobs:
         test-name: "test4: 102°F converts correctly"
         setup-command: ''
         command: echo '102' | java TempConverter | grep -q '38.8'
-        timeout: 10
+        timeout: 1
         max-score: 10
 
     - name: test5 (-32°F)
@@ -101,7 +101,7 @@ jobs:
         test-name: "test5: -32°F converts correctly"
         setup-command: ''
         command: echo '-32' | java TempConverter | grep -q '35.5'
-        timeout: 10
+        timeout: 1
         max-score: 10
 
     - name: last test (212°F)
@@ -111,7 +111,7 @@ jobs:
         test-name: "last test: 212°F converts correctly"
         setup-command: ''
         command: echo '212' | java TempConverter | grep -q '100.0'
-        timeout: 10
+        timeout: 1
         max-score: 15
 
     - name: Autograding Reporter
