@@ -1,0 +1,1 @@
+Please give me a temperature in fahrenheit: The temperature in celsius is: 38.88888888888889
