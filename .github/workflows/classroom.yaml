@@ -1,0 +1,116 @@
+name: Autograding
+
+on: [push]
+
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Compile
+        run: javac *.java
+
+
+      - name: test1_ (1 pt)
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: test1_
+          command: |
+            set -e
+            java TempConverter < tests/1_input.txt > actual.txt
+            if diff --strip-trailing-cr actual.txt tests/1_expected.txt; then
+              echo "PASS"
+            else
+              exit 1
+            fi
+          timeout: 2
+          max-score: 1
+
+
+      - name: test2_ (1 pt)
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: test2_
+          command: |
+            set -e
+            java TempConverter < tests/2_input.txt > actual.txt
+            if diff --strip-trailing-cr actual.txt tests/2_expected.txt; then
+              echo "PASS"
+            else
+              exit 1
+            fi
+          timeout: 2
+          max-score: 1
+
+
+      - name: test3_ (1 pt)
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: test3_
+          command: |
+            set -e
+            java TempConverter < tests/3_input.txt > actual.txt
+            if diff --strip-trailing-cr actual.txt tests/3_expected.txt; then
+              echo "PASS"
+            else
+              exit 1
+            fi
+          timeout: 2
+          max-score: 1
+
+
+      - name: test4_ (1 pt)
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: test4_
+          command: |
+            set -e
+            java TempConverter < tests/4_input.txt > actual.txt
+            if diff --strip-trailing-cr actual.txt tests/4_expected.txt; then
+              echo "PASS"
+            else
+              exit 1
+            fi
+          timeout: 2
+          max-score: 1
+
+
+      - name: test5_ (1 pt)
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: test5_
+          command: |
+            set -e
+            java TempConverter < tests/5_input.txt > actual.txt
+            if diff --strip-trailing-cr actual.txt tests/5_expected.txt; then
+              echo "PASS"
+            else
+              exit 1
+            fi
+          timeout: 2
+          max-score: 1
+
+
+      - name: test6_ (1 pt)
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: test6_
+          command: |
+            set -e
+            java TempConverter < tests/6_input.txt > actual.txt
+            if diff --strip-trailing-cr actual.txt tests/6_expected.txt; then
+              echo "PASS"
+            else
+              exit 1
+            fi
+          timeout: 2
+          max-score: 1
+
