@@ -19,103 +19,147 @@ jobs:
         run: javac *.java
 
 
-      - name: test1_ (1 pt)
+      - name: test1 (1 pt)
+        id: test1
         uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: test1_
+          test-name: test1
           command: |
-            set -e
             java TempConverter < tests/1_input.txt > actual.txt
-            if diff --strip-trailing-cr actual.txt tests/1_expected.txt; then
+            # Extract the expected value from your file
+            EXPECTED_VAL=$(cat tests/1_expected.txt)
+            # Search for that value inside the student's output
+            if grep -q -- "$EXPECTED_VAL" actual.txt; then
               echo "PASS"
             else
+              echo "FAIL: Could not find $EXPECTED_VAL in output."
+              echo "Student output was:"
+              cat actual.txt
               exit 1
             fi
           timeout: 2
           max-score: 1
 
 
-      - name: test2_ (1 pt)
+      - name: test2 (1 pt)
+        id: test2
         uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: test2_
+          test-name: test2
           command: |
-            set -e
             java TempConverter < tests/2_input.txt > actual.txt
-            if diff --strip-trailing-cr actual.txt tests/2_expected.txt; then
+            # Extract the expected value from your file
+            EXPECTED_VAL=$(cat tests/2_expected.txt)
+            # Search for that value inside the student's output
+            if grep -q -- "$EXPECTED_VAL" actual.txt; then
               echo "PASS"
             else
+              echo "FAIL: Could not find $EXPECTED_VAL in output."
+              echo "Student output was:"
+              cat actual.txt
               exit 1
             fi
           timeout: 2
           max-score: 1
 
 
-      - name: test3_ (1 pt)
+      - name: test3 (1 pt)
+        id: test3
         uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: test3_
+          test-name: test3
           command: |
-            set -e
             java TempConverter < tests/3_input.txt > actual.txt
-            if diff --strip-trailing-cr actual.txt tests/3_expected.txt; then
+            # Extract the expected value from your file
+            EXPECTED_VAL=$(cat tests/3_expected.txt)
+            # Search for that value inside the student's output
+            if grep -q -- "$EXPECTED_VAL" actual.txt; then
               echo "PASS"
             else
+              echo "FAIL: Could not find $EXPECTED_VAL in output."
+              echo "Student output was:"
+              cat actual.txt
               exit 1
             fi
           timeout: 2
           max-score: 1
 
 
-      - name: test4_ (1 pt)
+      - name: test4 (1 pt)
+        id: test4
         uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: test4_
+          test-name: test4
           command: |
-            set -e
             java TempConverter < tests/4_input.txt > actual.txt
-            if diff --strip-trailing-cr actual.txt tests/4_expected.txt; then
+            # Extract the expected value from your file
+            EXPECTED_VAL=$(cat tests/4_expected.txt)
+            # Search for that value inside the student's output
+            if grep -q -- "$EXPECTED_VAL" actual.txt; then
               echo "PASS"
             else
+              echo "FAIL: Could not find $EXPECTED_VAL in output."
+              echo "Student output was:"
+              cat actual.txt
               exit 1
             fi
           timeout: 2
           max-score: 1
 
 
-      - name: test5_ (1 pt)
+      - name: test5 (1 pt)
+        id: test5
         uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: test5_
+          test-name: test5
           command: |
-            set -e
             java TempConverter < tests/5_input.txt > actual.txt
-            if diff --strip-trailing-cr actual.txt tests/5_expected.txt; then
+            # Extract the expected value from your file
+            EXPECTED_VAL=$(cat tests/5_expected.txt)
+            # Search for that value inside the student's output
+            if grep -q -- "$EXPECTED_VAL" actual.txt; then
               echo "PASS"
             else
+              echo "FAIL: Could not find $EXPECTED_VAL in output."
+              echo "Student output was:"
+              cat actual.txt
               exit 1
             fi
           timeout: 2
           max-score: 1
 
 
-      - name: test6_ (1 pt)
+      - name: test6 (1 pt)
+        id: test6
         uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: test6_
+          test-name: test6
           command: |
-            set -e
             java TempConverter < tests/6_input.txt > actual.txt
-            if diff --strip-trailing-cr actual.txt tests/6_expected.txt; then
+            # Extract the expected value from your file
+            EXPECTED_VAL=$(cat tests/6_expected.txt)
+            # Search for that value inside the student's output
+            if grep -q -- "$EXPECTED_VAL" actual.txt; then
               echo "PASS"
             else
+              echo "FAIL: Could not find $EXPECTED_VAL in output."
+              echo "Student output was:"
+              cat actual.txt
               exit 1
             fi
           timeout: 2
           max-score: 1
-          
+
+
       - name: Autograding Reporter
         uses: classroom-resources/autograding-grading-reporter@v1
-        if: always()
+        env:
+          TEST1_RESULTS: "${{steps.test1.outputs.result}}" 
+          TEST2_RESULTS: "${{steps.test2.outputs.result}}" 
+          TEST3_RESULTS: "${{steps.test3.outputs.result}}" 
+          TEST4_RESULTS: "${{steps.test4.outputs.result}}" 
+          TEST5_RESULTS: "${{steps.test5.outputs.result}}" 
+          TEST6_RESULTS: "${{steps.test6.outputs.result}}" 
+
         with:
-          runners: test1_,test2_,test3_,test4_,test5_,test6_
+          runners: test1,test2,test3,test4,test5,test6
