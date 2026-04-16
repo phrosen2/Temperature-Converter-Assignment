@@ -36,6 +36,10 @@ The temperature in celsius is: 21.11111111111111
 
 ## TODO: Write instructions based on student experience.
 
+To check your work locally, enter `bash run_tests.sh` in your terminal window.
+
+To submit your work and check with the autograder, go to source control, write a message in the commit bar, hit the commit button and then hit sync. Take a minute and then check on your github to see the results. 
+
 ---
 
 ## Important: Multiple Test Cases
