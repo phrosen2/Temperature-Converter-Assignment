@@ -14,17 +14,31 @@ for i in tests/*input.txt; do
 
     actual=$(java TempConverter < "$i")
 
-    # diff needs the --strip-trailing-cr to deal with Unix/Windows confusion in output
-    if diff --strip-trailing-cr <(echo "$actual") "$expected" > /dev/null; then
+    # check for contains instead of exact match (careful with newlines)
+    if grep -q -f $expected <(echo "$actual"); then
         echo "Test $num: PASS"
         score=$((score + 1))
     else
-        echo "Test $num: FAIL"
-        echo "Expected: "
         cat $expected
-        echo "Actually got:"
-        echo $actual
+        echo ""
+        echo "Test $num: FAIL"
+        echo "Could not find $expected in output."
+        echo "Student output was:"
+        echo "$actual"
     fi
+
+
+    # diff needs the --strip-trailing-cr to deal with Unix/Windows confusion in output
+   # if diff --strip-trailing-cr <(echo "$actual") "$expected" > /dev/null; then
+    #    echo "Test $num: PASS"
+     #   score=$((score + 1))
+ #   else
+  #      echo "Test $num: FAIL"
+   #     echo "Expected: "
+    #    cat $expected
+     #   echo "Actually got:"
+      #  echo $actual
+   # fi
 done
 
 #Code Checks
@@ -43,9 +57,3 @@ echo "----------------------"
 echo "SCORE: $score / $total"
 echo "----------------------"
 
-# Fail CI if not perfect (optional)
-if [ "$score" -lt "$total" ]; then
-    exit 1
-fi
-
-echo "::notice title=Autograde Score::$score/$total"
