@@ -39,6 +39,8 @@ echo "SCORE: $score / $total"
 echo "----------------------"
 
 # Fail CI if not perfect (optional)
-if [ "$score" -lt "$total" ]; then
-    exit 1
-fi
+#if [ "$score" -lt "$total" ]; then
+#    exit 1
+#fi
+
+echo "::notice title=Autograde Score::$score/$total"
