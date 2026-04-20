@@ -1,40 +1,33 @@
 {
-  "name": "AP CS A – Java",
-  "image": "mcr.microsoft.com/devcontainers/java:21",
+  "name": "AP CS A - Java",
+  "image": "mcr.microsoft.com/devcontainers/java:1-21-bullseye",
 
   "customizations": {
     "vscode": {
-      "extensions": {
-        "recommendations": [
-          "vscjava.vscode-java-pack",
-          "vscjava.vscode-java-test",
-          "redhat.java",
-          "streetsidesoftware.code-spell-checker"
-        ],
-        "unwantedRecommendations": [
-          "github.copilot",
-          "github.copilot-chat",
-          "github.copilot-labs"
-        ]
-      },
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-java-test",
+        "redhat.java",
+        "streetsidesoftware.code-spell-checker"
+      ],
       "settings": {
-        "java.jdt.ls.java.home": "/usr/local/sdkman/candidates/java/current",
         "editor.tabSize": 4,
         "editor.formatOnSave": true,
-
-        "github.copilot.enable": {
-          "*": false
-        },
 
         "editor.inlineSuggest.enabled": false,
         "editor.suggest.preview": false,
 
-        "vsintellicode.modify.editor.suggestSelection": "None"
+        "github.copilot.enable": false,
+        "github.copilot.inlineSuggest.enable": false,
+
+        "chat.commandCenter.enabled": false,
+
+        "vsintellicode.modify.editor.suggestSelection": "none"
       }
     }
   },
 
-  "postCreateCommand": "java -version && code --uninstall-extension github.copilot --force; code --uninstall-extension github.copilot-chat --force; exit 0",
+  "postCreateCommand": "java -version",
 
   "remoteUser": "vscode"
 }
